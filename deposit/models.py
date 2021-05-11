@@ -1,6 +1,7 @@
 from django.db import models
 # from deposit_project.depozits import Deposit1
 
+# nav idejas kā pievenot šeit interest kalkulāciju
 
 class Deposit(models.Model):
 
