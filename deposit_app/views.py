@@ -53,11 +53,12 @@ def add_deposit(request):
         context={},
     )
 
-# def get_deposit (request, user_id):
-def get_deposit(request):
+
+def get_deposit (request, user_id):
+
     try:
-        # user = User.objects.get(id=user_id)
-        user = User.objects.get()
+        user = User.objects.get(id=user_id)
+
 
         context = {
 

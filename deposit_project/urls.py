@@ -20,9 +20,9 @@ import deposit_app.views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', deposit_app.views.index),         # for deposits general list
-    path('add_deposit', deposit_app.views.add_deposit),  # for deposit submiting
-    path('get_deposit', deposit_app.views.get_deposit, name='deposit-detail'),
+    path('', deposit_app.views.index),                                                       # deposits general list
+    path('add_deposit', deposit_app.views.add_deposit),                                      # deposit submiting
+    path('get_deposit/<int:user_id/', deposit_app.views.get_deposit, name='deposit-detail'), # deposit getting
 
 
 ]
