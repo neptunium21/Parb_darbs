@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from deposit_app.models import Deposit
+from deposit.models import Deposit
 
 admin.site.register(Deposit)
 

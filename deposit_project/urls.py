@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import deposit_app.views
+import deposit.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', deposit_app.views.index),                                                       # deposits general list
-    path('add_deposit', deposit_app.views.add_deposit),                                      # deposit submiting
-    path('get_deposit/<int:user_id/', deposit_app.views.get_deposit, name='deposit-detail'), # deposit getting
+    path('/', deposit.views.index),                                                       # deposits general list
+    path('/deposit/new', deposit.views.add_deposit),                                      # deposit submiting
+    path('/deposit/<int:deposit_id/', deposit.views.get_deposit, name='deposit-detail'), # deposit getting
 
 
 ]

@@ -3,11 +3,11 @@ from django.http import HttpResponseNotFound
 # from django.http import HttpResponse
 
 
-from deposit_app.models import Deposit
+from deposit.models import Deposit
 
 
 
-def index(request):                 # common deposits list
+def index(request):                                   # general deposits list
 
     deposits = Deposit.objects.all()
 
@@ -27,22 +27,22 @@ def add_deposit(request):
     if request.method == 'POST':
 
         deposit = Deposit(
-        depo=request.POST["depo"],
+        deposit=request.POST["deposit"],
         term = request.POST["term"],
         rate = request.POST["rate"],
         )
 
-        deposit.save()       # for storege in DB
+        deposit.save()                                    # storege into DB
 
 
         context = {
-            'depo': deposit.depo,
+            'deposit': deposit.deposit,
             'term': deposit.term,
             'rate': deposit.rate,
         }
 
         return render(
-            template_name='deposit_detail.html',
+            template_name='deposit_list.html',            # show general deposits list
             request=request,
             context=context,
         )
@@ -54,20 +54,22 @@ def add_deposit(request):
     )
 
 
-def get_deposit (request, user_id):
+def get_deposit (request, deposit_id):
 
     try:
-        user = User.objects.get(id=user_id)
+        deposit = Deposit.objects.get(id=deposit_id)
 
 
         context = {
 
-            'username': user.username,
-            'email': user.email,
+            'deposit': deposit.deposit,
+            'term': deposit.term,
+            'rate': deposit.rate,
+
         }
 
         return render(
-            template_name='user_detail.html',
+            template_name='deposit_detail.html',
             request=request,
             context=context,
         )
