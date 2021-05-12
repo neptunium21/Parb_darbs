@@ -16,7 +16,7 @@ def index(request):                                   # general deposits list
     }
 
     return render(
-        template_name='index.html',
+        template_name='deposit_list.html',
         request=request,
         context=context,
     )
